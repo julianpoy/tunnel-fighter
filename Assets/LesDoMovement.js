@@ -1,7 +1,9 @@
 ﻿#pragma strict
 
-function Start(){
+var rigidBody : Rigidbody2D;
 
+function Start(){
+    rigidBody = gameObject.GetComponent(Rigidbody2D);
 }
 
 function Update(){
@@ -9,5 +11,8 @@ function Update(){
 }
 
 function Move(){
-    Debug.Log("test2");
+    var h = Input.GetAxis("Horizontal");
+    var v = Input.GetAxis("Vertical");
+    var direction = new Vector2(h, v);
+    rigidBody.MovePosition(rigidBody.position + (direction * 0.1));
 }
