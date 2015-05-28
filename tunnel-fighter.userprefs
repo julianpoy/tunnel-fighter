@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LesDoMovement.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TileLogic.js">
     <Files>
       <File FileName="Assets/LesDoMovement.js" Line="19" Column="1" />
+      <File FileName="Assets/TileLogic.js" Line="16" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

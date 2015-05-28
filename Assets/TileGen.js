@@ -30,7 +30,7 @@ function Update()
 function tileCreate()
 {
   //Create a random direction to generate
-  dir = Random.Range(0, 4);
+  var dir = Random.Range(0, 4);
   //Our vector we are spawning
   var vector = tile.transform;
 
@@ -62,7 +62,7 @@ function tileCreate()
 
 
   //save our newest tile, then spawn our new current tile
-  ogTile = tile
+  ogTile = tile;
   tile = Instantiate(tile, new Vector2(i * 2.0F, 0), Quaternion.identity);
 
   //now disable our trigger in the opposite direction
