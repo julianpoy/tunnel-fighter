@@ -8,7 +8,7 @@ var neighborSouth : boolean = false;
 var neighborWest : boolean = false;
 var neighborEast : boolean = false;
 var enemy : GameObject;
-var discovered = false;
+var discovered;
 
 function Start () 
 {
@@ -17,6 +17,9 @@ function Start ()
     tileShadow = gameObject.transform.Find("Shadow").gameObject;
     tileShadow.SetActive(true);
     tileShadow.GetComponent(SpriteRenderer).color.a = 255;
+    
+    //Make sure discovered is false
+    discovered = false;
 }
 
 function OnTriggerEnter2D(other: Collider2D) 
