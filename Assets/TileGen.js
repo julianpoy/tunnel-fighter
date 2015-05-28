@@ -32,7 +32,7 @@ function tileCreate()
   //Create a random direction to generate
   var dir = Random.Range(0, 4);
   //Our vector we are spawning
-  var vector Vector2;
+  var vector : Vector2;
 	vector = tile.transform.localPosition;
 
   //enable our is trigger and vector 2
