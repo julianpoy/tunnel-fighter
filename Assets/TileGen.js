@@ -30,7 +30,7 @@ function Update()
 function tileCreate()
 {
   //Create a random direction to generate
-  var dir = Random.Range(0, 4);
+  dir = Random.Range(0, 4);
   //Our vector we are spawning
   var vector = tile.transform;
 
@@ -38,48 +38,48 @@ function tileCreate()
   if(dir < 1)
   {
       vector.transform.position.y = vector.transform.position.y - 3;
-      tile.transform.Find("BarrierSouth").isTrigger = false;
+      tile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else if(dir < 2)
   {
     vector.transform.position.x = vector.transform.position.x + 3;
-    tile.transform.Find("BarrierEast").isTrigger = false;
+    tile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else if (dir < 3)
   {
     vector.transform.position.y = vector.transform.position.y + 3;
-    tile.transform.Find("BarrierNorth").isTrigger = false;
+    tile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else
   {
     vector.transform.position.x = vector.transform.position.x - 3;
-    tile.transform.Find("BarrierWest").isTrigger = false;
+    tile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
 
 
   //Set the shadow to true on the tile
-  tile.transform.Find("Shadow").enabled = true;
+  tile.transform.Find("Shadow")gameObject.SetActive(false);
 
 
   //save our newest tile, then spawn our new current tile
   ogTile = tile;
-  tile = Instantiate(tile, new Vector2(i * 2.0F, 0), Quaternion.identity);
+  tile = Instantiate(tile,vector,Quaternion.identity);
 
   //now disable our trigger in the opposite direction
   if(dir < 1)
   {
-      ogTile.transform.Find("BarrierNorth").isTrigger = false;
+      ogTile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else if(dir < 2)
   {
-    ogTile.transform.Find("BarrierWest").isTrigger = false;
+    ogTile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else if (dir < 3)
   {
-    ogTile.transform.Find("BarrierSouth").isTrigger = false;
+    ogTile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else
   {
-    ogTile.transform.Find("BarrierEast").isTrigger = false;
+    ogTile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
 }
