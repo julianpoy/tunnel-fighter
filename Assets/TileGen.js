@@ -4,7 +4,6 @@
 var tile : GameObject;
 //Our original tile prefab
 var ogTile : GameObject;
-//Our last created Tile
 
 //number of initialized prefabs
 var numMade;
@@ -18,7 +17,7 @@ function Start()
     tile = ogTile;
 
     //Create a tile every 2 seconds
-    InvokeRepeating("tileCreate", 0, 1 );
+    InvokeRepeating("tileCreate", 0, .5);
 }
 
 function Update()
@@ -34,32 +33,35 @@ function tileCreate()
   //Our vector we are spawning
   var vector : Vector2;
 	vector = tile.transform.localPosition;
+	
+	//Our offset from the previous tile
+	var offset = 2.9f;
 
   //enable our is trigger and vector 2
   if(dir < 1)
   {
-      vector.y = vector.y - 3;
-      tile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+      vector.y = vector.y - offset;
+      tile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else if(dir < 2)
   {
-    vector.x = vector.x + 3;
-    tile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+    vector.x = vector.x + offset;
+    tile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else if (dir < 3)
   {
-    vector.y = vector.y + 3;
-    tile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+    vector.y = vector.y + offset;
+    tile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else
   {
-    vector.x = vector.x - 3;
-    tile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+    vector.x = vector.x - offset;
+    tile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
 
 
   //Set the shadow to true on the tile
-  tile.transform.Find("Shadow").gameObject.SetActive(false);
+  tile.transform.Find("Shadow").gameObject.SetActive(true);
 
 
   //save our newest tile, then spawn our new current tile
@@ -69,18 +71,18 @@ function tileCreate()
   //now disable our trigger in the opposite direction
   if(dir < 1)
   {
-      ogTile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+      ogTile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else if(dir < 2)
   {
-    ogTile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+    ogTile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else if (dir < 3)
   {
-    ogTile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+    ogTile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else
   {
-    ogTile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
+    ogTile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
 }
