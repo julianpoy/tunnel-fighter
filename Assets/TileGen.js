@@ -37,13 +37,17 @@ function tileCreate()
   while(!validDirection){
   	//Create a random direction to generate
     dir = Random.Range(0, 4);
-    
+    //dir = 0;
     validDirection = true;
+	Debug.Log(dir);
     if((dir < 1 && (Physics2D.Raycast(transform.position, -Vector2.up).collider != null)) || 
-    	(dir >= 1 && dir < 2 && (Physics2D.Raycast(transform.position, Vector2.right).collider != null)) || 
-    	(dir >= 2 && dir < 3 && (Physics2D.Raycast(transform.position, Vector2.up).collider != null)) || 
-    	(dir >= 3 && dir <= 4 && (Physics2D.Raycast(transform.position, -Vector2.right).collider != null))){
+    	(dir > 1 && dir < 2 && (Physics2D.Raycast(transform.position, Vector2.right).collider != null)) || 
+    	(dir > 2 && dir < 3 && (Physics2D.Raycast(transform.position, Vector2.up).collider != null)) || 
+    	(dir > 3 && dir <= 4 && (Physics2D.Raycast(transform.position, -Vector2.right).collider != null))){
     	validDirection = false;
+    	
+    		Debug.Log("fuck yo couch");
+    	
     }
   }
   //Our vector we are spawning
@@ -51,7 +55,7 @@ function tileCreate()
 	vector = tile.transform.localPosition;
 	
 	//Our offset from the previous tile
-	var offset = 2.9f;
+	var offset = 3.0f;
 
   //enable our is trigger and vector 2
   if(dir < 1)
@@ -87,18 +91,18 @@ function tileCreate()
   //now disable our trigger in the opposite direction
   if(dir < 1)
   {
-    //tile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
+    tile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else if(dir < 2)
   {
-    //tile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
+    tile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else if (dir < 3)
   {
-    //tile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
+    tile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
   else
   {
-    //tile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
+    tile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = true;
   }
 }
