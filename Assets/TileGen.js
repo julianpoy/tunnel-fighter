@@ -33,20 +33,27 @@ function Update()
 function tileCreate()
 {
   var dir : double;
+  var hitSouth: RaycastHit2D = Physics2D.Raycast(new Vector2(tile.transform.Find("BarrierSouth").transform.position.x, tile.transform.Find("BarrierSouth").transform.position.y - 1), -Vector2.up, 2.5);
+  var hitEast: RaycastHit2D = Physics2D.Raycast(new Vector2(tile.transform.Find("BarrierEast").transform.position.x + 1, tile.transform.Find("BarrierEast").transform.position.y), Vector2.right, 2.5);
+  var hitNorth: RaycastHit2D = Physics2D.Raycast(new Vector2(tile.transform.Find("BarrierNorth").transform.position.x, tile.transform.Find("BarrierNorth").transform.position.y + 1), Vector2.up, 2.5);
+  var hitWest: RaycastHit2D = Physics2D.Raycast(new Vector2(tile.transform.Find("BarrierWest").transform.position.x - 1, tile.transform.Find("BarrierWest").transform.position.y), -Vector2.right, 2.5);
   var validDirection = false;
   while(!validDirection){
   	//Create a random direction to generate
     dir = Random.Range(0, 4);
     //dir = 0;
     validDirection = true;
-	Debug.Log(dir);
-    if((dir < 1 && (Physics2D.Raycast(transform.position, -Vector2.up).collider != null)) || 
-    	(dir > 1 && dir < 2 && (Physics2D.Raycast(transform.position, Vector2.right).collider != null)) || 
-    	(dir > 2 && dir < 3 && (Physics2D.Raycast(transform.position, Vector2.up).collider != null)) || 
-    	(dir > 3 && dir <= 4 && (Physics2D.Raycast(transform.position, -Vector2.right).collider != null))){
+	//Debug.Log(dir);
+	
+	
+    //Debug.Log(hitWest.transform.name);
+    if((dir < 1 && (hitSouth)) || 
+    	(dir >= 1 && dir < 2 && (hitEast)) || 
+    	(dir >= 2 && dir < 3 && (hitNorth)) || 
+    	(dir >= 3 && dir <= 4 && (hitWest))){
     	validDirection = false;
     	
-    		Debug.Log("fuck yo couch");
+    		//Debug.Log("fuck yo couch");
     	
     }
   }
