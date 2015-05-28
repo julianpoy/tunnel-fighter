@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var ChickenPos : Vector3;
+var ChickenPos : Vector2;
 var tileShadow : GameObject;
 
 function Start () {
