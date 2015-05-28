@@ -1,23 +1,24 @@
 ﻿#pragma strict
 
-var ChickenPos : Vector2;
+var Chicken : GameObject;
 var tileShadow : GameObject;
 var neighborNorth : boolean = false;
 var neighborSouth : boolean = false;
 var neighborWest : boolean = false;
 var neighborEast : boolean = false;
 
-function Start () {
-    ChickenPos = GameObject.Find("ChickenShit").transform.position;
-    tileShadow = GameObject.Find("Shadow");
+function Start () 
+{
+    Chicken = GameObject.Find("ChickenShit");
+    tileShadow = gameObject.transform.Find("Shadow").gameObject;
 }
 
-function Update () {
-
-}
-
-function OnTriggerEnter2D(other: Collider2D) {
-	tileShadow.SetActive(false);
+function OnTriggerEnter2D(other: Collider2D) 
+{
+	if(other.gameObject.Equals(Chicken))
+	{
+		tileShadow.SetActive(false);
+	}
 }
 
 function setNeighborNorth(){
