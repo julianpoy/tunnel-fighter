@@ -32,28 +32,28 @@ function tileCreate()
   //Create a random direction to generate
   var dir = Random.Range(0, 4);
   //Our vector we are spawning
-  var vector : Vector2;
-  vector = tile.transform;
+  var vector Vector2;
+	vector = tile.transform.localPosition;
 
   //enable our is trigger and vector 2
   if(dir < 1)
   {
-      vector.transform.position.y = vector.transform.position.y - 3;
+      vector.y = vector.y - 3;
       tile.transform.Find("BarrierSouth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else if(dir < 2)
   {
-    vector.transform.position.x = vector.transform.position.x + 3;
+    vector.x = vector.x + 3;
     tile.transform.Find("BarrierEast").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else if (dir < 3)
   {
-    vector.transform.position.y = vector.transform.position.y + 3;
+    vector.y = vector.y + 3;
     tile.transform.Find("BarrierNorth").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
   else
   {
-    vector.transform.position.x = vector.transform.position.x - 3;
+    vector.x = vector.x - 3;
     tile.transform.Find("BarrierWest").gameObject.GetComponent(BoxCollider2D).isTrigger = false;
   }
 
