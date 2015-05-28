@@ -30,9 +30,10 @@ function Update()
 function tileCreate()
 {
   //Create a random direction to generate
-  dir = Random.Range(0, 4);
+  var dir = Random.Range(0, 4);
   //Our vector we are spawning
-  var vector = tile.transform;
+  var vector : Vector2;
+  vector = tile.transform;
 
   //enable our is trigger and vector 2
   if(dir < 1)
@@ -58,7 +59,7 @@ function tileCreate()
 
 
   //Set the shadow to true on the tile
-  tile.transform.Find("Shadow")gameObject.SetActive(false);
+  tile.transform.Find("Shadow").gameObject.SetActive(false);
 
 
   //save our newest tile, then spawn our new current tile
