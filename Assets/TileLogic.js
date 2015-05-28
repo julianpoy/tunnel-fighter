@@ -1,11 +1,14 @@
 ﻿#pragma strict
 
+//Our variables
 var Chicken : GameObject;
 var tileShadow : GameObject;
 var neighborNorth : boolean = false;
 var neighborSouth : boolean = false;
 var neighborWest : boolean = false;
 var neighborEast : boolean = false;
+var enemy : GameObject;
+var discovered = false;
 
 function Start () 
 {
@@ -18,8 +21,17 @@ function Start ()
 
 function OnTriggerEnter2D(other: Collider2D) 
 {
-	if(other.gameObject.Equals(Chicken))
+	if(other.gameObject.Equals(Chicken) && !discovered)
 	{
+		//discovered is true
+		discovered = true;
+		//Chance to spawn an enmy
+		if(Random.Range(0, 5) < 1)
+		{
+			//Instantiate the enemy at our tile position
+			Instantiate(enemy,this.gameObject.transform.position,Quaternion.identity);
+		}
+		//Smoothly remove our shadow
 		StartCoroutine("SmoothEnter");
 	}
 }
