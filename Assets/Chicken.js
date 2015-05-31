@@ -2,8 +2,16 @@
 
 var rigidBody : Rigidbody2D;
 
+//Our Chciken vairables
+var chickHealth;
+var chickLvl;
+
 function Start(){
     rigidBody = gameObject.GetComponent(Rigidbody2D);
+    
+    //Initialize our variables
+    chickHealth = 5;
+    chickLvl = 1;
 }
 
 function Update(){
