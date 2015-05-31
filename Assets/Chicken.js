@@ -24,3 +24,14 @@ function Move(){
     var direction = new Vector2(h, v);
     rigidBody.MovePosition(rigidBody.position + (direction * 0.1));
 }
+
+//Get methods
+function getHealth()
+{
+	return chickHealth;
+}
+
+function getLvl()
+{
+	return chickLvl;
+}
