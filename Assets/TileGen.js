@@ -56,7 +56,7 @@ function tileCreate()
 		directionCrash = directionCrash + 1;
 
 		//Choose a random direction
-		dir = Random.Range(0, 4);'
+		dir = Random.Range(0, 4);
 
 		//Assume direction is valid
 		validDirection = true;
